@@ -1,0 +1,17 @@
+.header {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+}
+.img {
+  width: 10%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.hamburgerIcon div {
+  width: 1.5rem;
+  height: 0.25rem;
+  background-color: rgb(98, 88, 88);
+  margin: 0.2rem;
+}
