@@ -14,7 +14,7 @@ type ModalParams = {
 const Modal = ({ onClose, children, title }: ModalParams) => {
   const [isActive, setIsActive] = useState(false); //Control animation
   const [isMounted, setIsMounted] = useState(true); //Render
-
+  console.log(title);
   useEffect(() => {
     setIsActive(true);
   }, []);

@@ -23,8 +23,6 @@ const navItems = (
 );
 
 const MainHeader = () => {
-  const [toggleHamburger, setToggleHamburger] = useState(styles.hamburgerIcon);
-
   const [showModal, setShowModal] = useState(false);
 
   const toggleNav = () => {

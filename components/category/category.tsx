@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./category.module.css";
-import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 
 interface CategoryProps {
