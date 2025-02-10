@@ -1,4 +1,49 @@
 .container {
-  min-height: 75vh;
-  border: 1px solid red;
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Needed for Next.js Image fill */
+  overflow: hidden; /* Ensures no unwanted overflow */
+  margin-bottom: 3rem;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+  position: relative; /* REQUIRED for Next.js Image fill */
+}
+
+.img {
+  object-fit: cover; /* Ensures the image fills the container */
+}
+
+.middleContainer {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.title {
+  letter-spacing: 0.4rem;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 1rem;
+}
+.buttonContainer > * {
+  background-color: black;
+  border-radius: 15px;
+  padding: 8px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1rem;
+  box-shadow: 2px 2px 2px rgb(197, 180, 180);
+}
+.button {
 }

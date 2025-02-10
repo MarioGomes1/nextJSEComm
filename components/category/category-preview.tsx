@@ -34,3 +34,4 @@ const CategoryPreview = () => {
 };
 
 export default CategoryPreview;
+//avif

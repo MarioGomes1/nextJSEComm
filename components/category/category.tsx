@@ -13,9 +13,11 @@ const Category = ({ title, image, desc }: CategoryProps) => {
   return (
     <div className={styles.container}>
       <Image className={styles.img} src={image} alt="" />
-      <h1>{title}</h1>
-      <p>{desc}</p>
-      <button>Visit</button>
+      <div className={styles.info}>
+        <h1>{title}</h1>
+        <p>{desc}</p>
+        <button>Visit</button>
+      </div>
     </div>
   );
 };

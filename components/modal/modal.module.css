@@ -1,0 +1,41 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.modal {
+  background: white;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  padding: 15px;
+  opacity: 1;
+  transform: translateX(100%);
+  transition: all 0.2s ease-in;
+}
+
+.modal.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.modal:not(.active) {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.closeButton {
+  padding: 20px;
+  background-color: none;
+  transition: padding, transform 2s;
+}
+
+.closeButton:hover {
+  padding: 30px;
+}
