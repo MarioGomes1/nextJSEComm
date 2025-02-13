@@ -2,6 +2,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  outline: 2px solid lime;
 }
 
 /* Remove default margin */
@@ -19,10 +20,10 @@ dd {
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   width: min(100%, 70rem);
-  /* display: grid; */
-  /* grid-template-rows: auto 1fr auto; */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 ul {
   list-style: none;

@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model cart {
+  id         Int      @id @default(autoincrement())
+  user_id    Int?
+  product_id Int?
+  size_id    Int?
+  quantity   Int?
+  product    product? @relation(fields: [product_id], references: [product_id], onDelete: NoAction, onUpdate: NoAction)
+  size       size?    @relation(fields: [size_id], references: [size_id], onDelete: NoAction, onUpdate: NoAction)
+  user       user?    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([user_id, product_id, size_id])
+}
+
+model category {
+  category_id   Int       @id @default(autoincrement())
+  category_name String    @db.VarChar(255)
+  product       product[]
+}
+
+model product {
+  product_id   Int            @id @default(autoincrement())
+  product_name String         @db.VarChar(255)
+  category_id  Int?
+  price        Decimal?       @db.Decimal(10, 2)
+  description  String?
+  image        String?
+  cart         cart[]
+  category     category?      @relation(fields: [category_id], references: [category_id], onDelete: NoAction, onUpdate: NoAction)
+  product_size product_size[]
+}
+
+model product_size {
+  product_id Int
+  size_id    Int
+  product    product @relation(fields: [product_id], references: [product_id], onDelete: Cascade, onUpdate: NoAction)
+  size       size    @relation(fields: [size_id], references: [size_id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@id([product_id, size_id])
+}
+
+model size {
+  size_id      Int            @id @default(autoincrement())
+  size_name    String         @db.VarChar(50)
+  cart         cart[]
+  product_size product_size[]
+}
+
+model user {
+  id       Int      @id @default(autoincrement())
+  username String   @unique @db.VarChar
+  password String   @db.VarChar
+  email    String   @unique @db.VarChar
+  isadmin  Boolean?
+  cart     cart[]
+}
